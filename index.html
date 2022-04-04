@@ -10,22 +10,23 @@
     const root = document.getElementById("root");
     let counter = 0;
     function countUp() {
-      counter = counter + 1;
-      render();
+      //Code
     }
-    function render() {
-      ReactDOM.render(<Container />, root); // rerender
-    }
-    // 무조건 UpperCase로 Component명 정해야함!
-    // {}로 변수명 사용
-    function Container() {
+    function App() {
+      //const counter = data[0];
+      //const modifier = data[1];
+      //랑 똑같음
+      const [counter, setCounter] = React.useState(0);
+      const onClick = () => {
+        setCounter(counter + 1);
+      };
       return (
         <div>
           <h3>Total clicks: {counter}</h3>
-          <button onClick={countUp}>Click me</button>
+          <button onClick={onClick}>Click me</button>
         </div>
       );
     }
-    render();
+    ReactDOM.render(<App />, root);
   </script>
 </html>
